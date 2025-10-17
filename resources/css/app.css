@@ -1,0 +1,21 @@
+/* Import DataTables CSS desde CDN primero */
+@import url('https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css');
+@import url('https://cdn.datatables.net/buttons/2.4.1/css/buttons.dataTables.min.css');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Estilos extra opcionales para unificar con Tailwind */
+table.dataTable thead {
+    background-color: #4f46e5; /* color principal */
+    color: white;
+}
+
+table.dataTable tbody tr:hover {
+    background-color: #e0e7ff; /* hover suave */
+}
+
+.dataTables_wrapper .dt-buttons button {
+    @apply bg-indigo-600 text-white px-3 py-1 rounded-md text-sm font-medium hover:bg-indigo-500;
+}
