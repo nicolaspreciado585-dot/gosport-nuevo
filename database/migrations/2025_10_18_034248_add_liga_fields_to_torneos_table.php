@@ -9,21 +9,20 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-public function up(): void
-{
-    if (!Schema::hasTable('roles')) {
-        Schema::create('roles', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+    public function up(): void
+    {
+        Schema::table('torneos', function (Blueprint $table) {
+            //
         });
     }
-}
 
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('roles');
+        Schema::table('torneos', function (Blueprint $table) {
+            //
+        });
     }
 };

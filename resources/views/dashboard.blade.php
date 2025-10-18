@@ -77,6 +77,11 @@
                                class="block text-center bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-500 transition duration-150 text-sm font-medium">
                                 Ver Detalles y Calendario
                             </a>
+                            <a href="{{ route('ligas.index') }}" 
+                            class="block text-center bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-500 transition duration-150 text-sm font-medium mt-2">
+                            ⚽ Ver Ligas
+                            </a>
+
                         </div>
                     </div>
                 @empty
