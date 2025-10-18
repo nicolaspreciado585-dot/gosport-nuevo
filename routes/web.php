@@ -1,13 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-//use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Usuario\UsuarioController;
 use App\Http\Controllers\ReservaController;
-use App\Http\Controllers\CanchaController; 
-// Importamos los controladores principales
+use App\Http\Controllers\CanchaController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AdminReservaController;
+use App\Http\Controllers\EventoController;
 
 // Página pública de bienvenida
 Route::get('/', function () {
@@ -21,7 +20,7 @@ Route::middleware([
     'verified',
 ])->group(function () {
 
-    // Dashboard (Usamos el DashboardController para cargar la vista principal con datos)
+    // Dashboard
     Route::get('/dashboard', [DashboardController::class, 'index'])
         ->name('dashboard');
 
@@ -31,7 +30,6 @@ Route::middleware([
     // ==========================================================
     // Módulo de reservas (Rutas para el usuario final)
     // ==========================================================
-    
     Route::get('/reservas/create', [CanchaController::class, 'index']) 
         ->name('reservas.create'); 
     Route::get('/reservas/create/{cancha}', [ReservaController::class, 'create'])
@@ -42,19 +40,18 @@ Route::middleware([
         return view('reservas.confirmacion');
     })->name('reservas.confirmacion');
 
-    // Perfil
-    //Route::get('/profile', [ProfileController::class, 'show'])
-      //  ->name('profile.show');
-        
     // ==========================================================
-    // Módulo de Gestión Administrativa (CRUD de Reservas y Reportes)
+    // Módulo de Gestión Administrativa (CRUD de Eventos y Reservas)
+    // Las rutas generadas aquí son 'admin.eventos.index' y 'admin.reservas.index'
     // ==========================================================
     Route::prefix('gestion')->name('admin.')->group(function () {
         
+        // CRUD de Eventos
+        Route::resource('eventos', EventoController::class);
+        Route::get('eventos/reporte', [EventoController::class, 'reporte'])->name('eventos.reporte');
+        
         // CRUD de Reservas (Index, Edit, Update, Destroy)
         Route::resource('reservas', AdminReservaController::class)->except(['create', 'store', 'show']); 
-        
-        // **NUEVO:** Ruta para generar informes
         Route::get('reservas/reporte', [AdminReservaController::class, 'reporte'])->name('reservas.reporte');
     });
 });
