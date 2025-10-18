@@ -34,19 +34,12 @@
 
                                 {{-- Correo --}}
                                 <div>
-                                    <label for="correo" class="block font-medium">Correo</label>
-                                    <input type="email" name="correo" id="correo"
-                                        value="{{ old('correo', $usuario->correo) }}"
+                                    <label for="email" class="block font-medium">Correo</label>
+                                    <input type="email" name="email" id="email"
+                                        value="{{ old('email', $usuario->email) }}"
                                         class="w-full border rounded px-3 py-2">
                                 </div>
-
-                                {{-- Teléfono --}}
-                                <div>
-                                    <label for="telefono" class="block font-medium">Teléfono</label>
-                                    <input type="text" name="telefono" id="telefono" maxlength="10"
-                                        value="{{ old('telefono', $usuario->telefono) }}"
-                                        class="w-full border rounded px-3 py-2">
-                                </div>
+                                
 
                                 {{-- BOTONES --}}
                                 <div class="pt-4 flex gap-3">

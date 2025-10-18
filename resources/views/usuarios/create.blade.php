@@ -36,21 +36,21 @@
 
                                     {{-- Correo --}}
                                     <div>
-                                        <label for="correo" class="block font-medium">Correo</label>
-                                        <input type="email" name="correo" id="correo" 
-                                            value="{{ old('correo') }}"
+                                        <label for="email" class="block font-medium">Correo</label>
+                                        <input type="email" name="email" id="email" 
+                                            value="{{ old('email') }}"
                                             class="w-full border rounded px-3 py-2">
-                                        @error('correo')
+                                        @error('email')
                                             <span class="text-red-600 text-sm">{{ $message }}</span>
                                         @enderror
                                     </div>
 
                                     {{-- Contraseña --}}
                                     <div>
-                                        <label for="contraseña" class="block font-medium">Contraseña</label>
-                                        <input type="password" name="contraseña" id="contraseña" 
+                                        <label for="password" class="block font-medium">Contraseña</label>
+                                        <input type="password" name="password" id="password" 
                                             class="w-full border rounded px-3 py-2">
-                                        @error('contraseña')
+                                        @error('password')
                                             <span class="text-red-600 text-sm">{{ $message }}</span>
                                         @enderror
                                     </div>

@@ -35,7 +35,7 @@
                             @foreach ($usuarios as $e)
                                 <tr>
                                     <td>{{ $e->nombre }}</td>
-                                    <td>{{ $e->correo }}</td>
+                                    <td>{{ $e->email }}</td>
                                     <td>{{ $e->telefono }}</td>
                                     <td>
                                         <a href="{{ route('usuarios.edit', $e) }}">✏️ Editar</a>
